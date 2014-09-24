@@ -11,6 +11,7 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+\usepackage{rotating}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -108,8 +109,13 @@ $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 $endif$
+% listings settings
 $if(listings)$
 \usepackage{listings}
+\lstdefinestyle{lststyle}{
+    basicstyle=\small\ttfamily
+}
+\lstset{style=lststyle}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
@@ -122,8 +128,9 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs}
+\usepackage{longtable}
 $endif$
+\usepackage{dcolumn, booktabs}
 $if(graphics)$
 \usepackage{graphicx,grffile}
 \makeatletter

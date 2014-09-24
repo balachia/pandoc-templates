@@ -37,28 +37,40 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
+
+<div class="container">
+<div class='row'>
+
+$if(toc)$
+$toc$
+$endif$
+
+<div class="col-sm-9 col-sm-offset-1 col-md-7 col-md-offset-2 col-lg-6 col-lg-offset-3">
+
 $if(title)$
-<div id="$idprefix$header">
+<header>
 <h1 class="title">$title$</h1>
 $if(subtitle)$
 <h1 class="subtitle">$subtitle$</h1>
 $endif$
 $for(author)$
-<h2 class="author">$author$</h2>
+<h2 class="author"><small>$if(author.name)$$author.name$$else$$author$$endif$</small></h2>
 $endfor$
 $if(date)$
-<h3 class="date">$date$</h3>
+<h3 class="date"><small>$date$</small></h3>
 $endif$
-</div>
+</header>
 $endif$
-$if(toc)$
-<div id="$idprefix$TOC">
-$toc$
-</div>
-$endif$
+
 $body$
+</div>
+
+</div>
+</div>
+
 $for(include-after)$
 $include-after$
 $endfor$
+
 </body>
 </html>
