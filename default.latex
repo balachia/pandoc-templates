@@ -8,6 +8,7 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+\usepackage{rotating}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -49,6 +50,7 @@ $endif$
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
+% bibliography settings
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -59,8 +61,13 @@ $if(biblio-files)$
 \bibliography{$biblio-files$}
 $endif$
 $endif$
+% listings settings
 $if(listings)$
 \usepackage{listings}
+\lstdefinestyle{lststyle}{
+    basicstyle=\small\ttfamily
+}
+\lstset{style=lststyle}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
@@ -73,8 +80,9 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs}
+\usepackage{longtable}
 $endif$
+\usepackage{dcolumn, booktabs}
 $if(graphics)$
 \usepackage{graphicx}
 \makeatletter
