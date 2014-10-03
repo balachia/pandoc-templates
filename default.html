@@ -23,7 +23,21 @@ $endif$
 $for(css)$
   <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
+$if(mathjaxcdn)$
+<!-- custom tag to use mathjax in semi-self-contained files -->
+<script type="text/javascript">
+  var fileref=document.createElement('script')
+  fileref.setAttribute("type","text/javascript")
+  fileref.setAttribute("src", "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+  document.getElementsByTagName("head")[0].appendChild(fileref)
+</script>
+$endif$
 $if(math)$
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
   $math$
 $endif$
 $for(header-includes)$
