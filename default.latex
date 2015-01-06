@@ -7,9 +7,18 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
-$if(linestretch)$
 \usepackage{setspace}
+$if(linestretch)$
+%\usepackage{setspace}
 \setstretch{$linestretch$}
+$endif$
+$if(onehalfspacing)$
+%\usepackage{setspace}
+\onehalfspacing
+$endif$
+$if(doublespacing)$
+%\usepackage{setspace}
+\doublespacing
 $endif$
 \usepackage{rotating}
 \usepackage{amssymb,amsmath}
@@ -222,9 +231,15 @@ $if(title)$
 \maketitle
 $endif$
 $if(abstract)$
+\\
+\begin{singlespacing}
 \begin{abstract}
+\normalsize
+\noindent
 $abstract$
 \end{abstract}
+\end{doublespacing}
+\newpage
 $endif$
 
 $for(include-before)$
