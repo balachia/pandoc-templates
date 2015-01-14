@@ -4,19 +4,18 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
+
 \usepackage{setspace}
 $if(linestretch)$
-%\usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
 $if(onehalfspacing)$
-%\usepackage{setspace}
 \onehalfspacing
 $endif$
 $if(doublespacing)$
-%\usepackage{setspace}
 \doublespacing
 $endif$
+
 \usepackage{rotating}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -149,6 +148,10 @@ $if(lang)$
 \fi
 $endif$
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 $if(title)$
 \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
 $endif$
@@ -156,9 +159,6 @@ $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 \date{$date$}
-$for(header-includes)$
-$header-includes$
-$endfor$
 
 \begin{document}
 $if(title)$
@@ -172,7 +172,7 @@ $if(abstract)$
 \noindent
 $abstract$
 \end{abstract}
-\end{doublespacing}
+\end{singlespacing}
 \newpage
 $endif$
 
