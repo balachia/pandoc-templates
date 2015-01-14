@@ -7,19 +7,18 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
+
 \usepackage{setspace}
 $if(linestretch)$
-%\usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
 $if(onehalfspacing)$
-%\usepackage{setspace}
 \onehalfspacing
 $endif$
 $if(doublespacing)$
-%\usepackage{setspace}
 \doublespacing
 $endif$
+
 \usepackage{rotating}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -210,6 +209,10 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
@@ -238,7 +241,7 @@ $if(abstract)$
 \noindent
 $abstract$
 \end{abstract}
-\end{doublespacing}
+\end{singlespacing}
 \newpage
 $endif$
 
