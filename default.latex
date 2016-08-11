@@ -213,6 +213,10 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
