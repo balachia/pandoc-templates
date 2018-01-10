@@ -214,23 +214,37 @@ $endif$
 \makeatother
 
 $for(header-includes)$
+\usepackage[nolists]{endfloat}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\bf\center\MakeUppercase}
+\titleformat*{\subsection}{\normalsize\bf}
+\titleformat*{\subsubsection}{\normalsize\bf}
+\titleformat*{\paragraph}{\normalsize\it}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancypagestyle{firststyle}{\fancyhf{} \fancyhead[R]{$if(aomid)$$aomid$$else$XXXXX$endif$}}
+\renewcommand{\efloatseparator}{\mbox{}}
+
 $header-includes$
 $endfor$
 
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+\title{\normalsize \textbf{$title$}$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
 \providecommand{\subtitle}[1]{}
 \subtitle{$subtitle$}
 $endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-$if(institute)$
-\providecommand{\institute}[1]{}
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
+%$if(author)$
+%\author{$for(author)$$author$$sep$ \and $endfor$}
+%$endif$
+%$if(institute)$
+%\providecommand{\institute}[1]{}
+%\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+%$endif$
 \date{$date$}
 
 \begin{document}
@@ -246,8 +260,10 @@ $if(abstract)$
 $abstract$
 \end{abstract}
 \end{singlespacing}
-\newpage
 $endif$
+
+\thispagestyle{firststyle}
+\newpage
 
 $for(include-before)$
 $include-before$
